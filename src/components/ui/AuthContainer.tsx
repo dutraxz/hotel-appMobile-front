@@ -1,5 +1,5 @@
-import {FontAwesome5} from "@expo/vector-icons"
-import {Text} from "react-native";
+import {FontAwesome5, FontAwesome6} from "@expo/vector-icons"
+import {KeyboardAvoidingView, ScrollView, Text, View} from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -12,10 +12,19 @@ type Props = {
 
 export default function AuthContainer({title, subtitle, icon, /*children*/}: Props) {
     return (
-        <SafeAreaView>
+        <SafeAreaView style={globlal.safeArea}>
+        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "heigt" } style
+            <ScrollView contentContainerStyle={global.container}>
+                <View style={global.header}>
+                    {!!icon && <FontAwesome6 name={icon} size={30} size={30} color="purple" />
+                    <Text style={global.title}> {title}</Text>
+                     {!!subtitle && <Text style={global.subtitle}>{subtitle}</Text>}
             <FontAwesome5 name={icon} size={25} color="red" />
-            <Text>{title}</Text>
-            <Text>{subtitle}</Text>
+                <View>
+
+                </View>
+            </ScrollView>
+        </KeyboardAvoidingView>
         </SafeAreaView>
     );
 }
