@@ -5,18 +5,18 @@ import { Text, TextInput, TextInputProps, View } from "react-native";
 
 type Props = TextInputProps &{
     label: string;
-    errorText: string;
+    errorText?: string;
     icon?: keyof typeof MaterialIcons.glyphMap;
 }
 
-export default function TextField({label, errorText, icon} : Props){
+export function TextField( { label, errorText, icon } : Props){
     return (
         <View>
-            <Text>Teste de Label</Text>
+            <Text>{label}</Text>
             <View>
                 {!! icon && (
                     <View>
-                        <MaterialIcons name={icon} size= {18} color="purple"/>
+                        <MaterialIcons name={icon} size={18} color="blue"/>
                     </View>
                 )}
             <TextInput

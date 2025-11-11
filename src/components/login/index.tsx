@@ -1,12 +1,18 @@
-import TextField from "../ui/TextField";
-import { FontAwesome5 } from "@expo/vector-icons"
+import { TextField } from "../ui/TextField";
+import { AuthContainer } from "../ui/AuthContainer";
 
-export default function renderLogin() {
+
+export function RenderLogin() {
     return (
+        <AuthContainer
+            title="Bem-Vindo"
+            subtitle="Faça seu login para continuar!"
+            icon="hotel">
+
         <TextField
-            label="E-mail" errorText={""}            //icon= "email-outline"
-            >
-        
+            label="E-mail"
+            icon={"email"}>
         </TextField>
+        </AuthContainer>
     )
 } 

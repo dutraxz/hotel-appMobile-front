@@ -2,11 +2,10 @@ import { StyleSheet, Dimensions } from "react-native";
 
 //Dimensões da tela
 const{ width, height } = Dimensions.get("window");
-
 export const global = StyleSheet.create({
     safeArea: {
         flex: 1,
-        backgroundColor: "#fff"
+        backgroundColor: "white"
     },
 
     keyboardAdvoiding: {
@@ -14,8 +13,8 @@ export const global = StyleSheet.create({
     },
 
     container: {
-        paddingHorizontal: width * 0.07,
-        paddingVertical: height * 0.07
+        paddingHorizontal: width * 0.03,
+        paddingVertical: height * 0.01
     },
     
     header: {
@@ -26,21 +25,21 @@ export const global = StyleSheet.create({
     title: {
         fontSize: 25,
         fontWeight: "800",
-        marginTop: height * 0.006
+        marginTop: height * 0.06
         //Para atribuir cor: color
     },
 
     subtitle: {
         fontSize: 17,
-        color: "purple",
+        color: "blue",
         marginTop: 6,
     },
     
     content: {
         backgroundColor: "blue",
-        borderRadius: 10,
+        borderRadius: 15,
         padding: width * 0.07,
-        shadowColor: "black",
+        shadowColor: "red",
         shadowOpacity: 0.06,
         shadowRadius: 10,
         elevation: 2
