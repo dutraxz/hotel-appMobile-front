@@ -1,7 +1,8 @@
 import {FontAwesome5, FontAwesome6} from "@expo/vector-icons"
-import {KeyboardAvoidingView, ScrollView, Text, View} from "react-native";
+import {KeyboardAvoidingView, Platform, ScrollView, Text, View} from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { global } from "./styles";
 
 type Props = {
     title: string;
@@ -12,19 +13,19 @@ type Props = {
 
 export default function AuthContainer({title, subtitle, icon, /*children*/}: Props) {
     return (
-        <SafeAreaView style={globlal.safeArea}>
-        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "heigt" } style
-            <ScrollView contentContainerStyle={global.container}>
-                <View style={global.header}>
-                    {!!icon && <FontAwesome6 name={icon} size={30} size={30} color="purple" />
-                    <Text style={global.title}> {title}</Text>
-                     {!!subtitle && <Text style={global.subtitle}>{subtitle}</Text>}
-            <FontAwesome5 name={icon} size={25} color="red" />
-                <View>
+        <SafeAreaView style={global.safeArea}>
+            <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={global.keyboardAdvoiding}>
+                <ScrollView style={global.container}>
+                    <View style={global.header}>
+                        {!!icon && <FontAwesome5 name={icon} size={25} color="#4b0505" style={global.hotelIcon}/>} 
+                        <Text style={global.title}>{title}</Text>
+                        {!!subtitle && <Text style={global.subtitle}>{subtitle}</Text>}
+                    </View>
+                    <View style={global.content}>
 
-                </View>
-            </ScrollView>
-        </KeyboardAvoidingView>
+                    </View>
+                </ScrollView>
+            </KeyboardAvoidingView>
         </SafeAreaView>
     );
 }
