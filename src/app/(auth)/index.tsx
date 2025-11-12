@@ -1,11 +1,12 @@
 /* Login */
-import { RenderLogin } from "@/components/login";
-import { AuthContainer } from "@/components/ui/AuthContainer";
+import RenderLogin from "@/components/login";
 
-export default function Login() {
+const Login = () => {
     return (
 
         <RenderLogin />
         
     );
 }
+
+export default Login ;

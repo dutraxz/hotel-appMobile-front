@@ -5,11 +5,10 @@ back(): retorna a tela anterior empilhada
 replace(): substitui uma tela por outra*/
 
 import { Stack } from "expo-router";
-import { StackScreen } from "react-native-screens";
 
-export default function AuthLayout(){
+const AuthLayout = ()=> {
     return (
-        <Stack screenOptions={{headerShown: false}}>
+        <Stack screenOptions={{headerShown: true}}>
             <Stack.Screen name="index" options={{title: "Login"}}/>
             {/*<Stack.Screnn name="register" options={{title: "Cadastro"}}/> */}
             {/*<Stack.Screnn name="resetPassword" options={{title: "Esqueci minha senha"}}/> */}
@@ -17,5 +16,6 @@ export default function AuthLayout(){
 
         </Stack>    
     )
-
 }
+
+export default AuthLayout;
