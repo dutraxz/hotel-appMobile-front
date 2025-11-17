@@ -9,6 +9,7 @@ type Props = {
     subtitle?: string;
     icon?: keyof typeof FontAwesome6.glyphMap;
     children: React.ReactNode;
+    iconBack?: boolean;
 }
 
 const AuthContainer = ({title, subtitle, icon, children}: Props) => {
@@ -30,5 +31,4 @@ const AuthContainer = ({title, subtitle, icon, children}: Props) => {
     </SafeAreaView>
   );
 }
-
 export default AuthContainer;
