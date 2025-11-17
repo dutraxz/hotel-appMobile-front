@@ -1,25 +1,31 @@
-import { MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome6, MaterialIcons } from "@expo/vector-icons";
 import React from "react";
 import { Text, TextInput, TextInputProps, View } from "react-native";
 import { global } from "./styles";
+import { Icon } from "react-native-screens";
 
+type IconLinbrary = "MaterialIcons" | "FontAwesome6";
 
 type Props = TextInputProps & {
     label?: string;
     errorText?: string;
-    icon?: keyof typeof MaterialIcons.glyphMap;
+    lib?: IconLinbrary;
+    icon?: keyof typeof MaterialIcons.glyphMap | keyof typeof FontAwesome6.glyphMap;
+    button?: IconLinbrary;
+    onPressBack?: () => void;
+    
 }
 
 
 
-const TextField =  ({label, errorText, icon, style, ...restInputProps } : Props) => {
+const TextField =  ({label, errorText, icon, style, button, onPressBack ...restInputProps } : Props) => {
     return (
         <View style={global.inputGroup}>
             <Text style={global.label}>{label}</Text>
             <View style={[global.inputIcon, errorText ? global.inputError : null]}>
                 {!! icon && (
                     <View>
-                        <MaterialIcons name={icon} size={21} color="#052659"/>
+                        <MaterialIcons lib={icon} size={21} color="#052659"/>
                     </View>
                 )}
                 <TextInput

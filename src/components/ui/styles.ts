@@ -49,12 +49,12 @@ export const global = StyleSheet.create({
     },
     inputIcon: {
         backgroundColor: "#ffffffff",
-        paddingLeft: width * 0.03,
+        paddingLeft: width * 0.02,
         flexDirection: "row",
         alignItems: "center",
         borderWidth: 1,
         borderColor: "#6c6969ff",
-        borderRadius: 18
+        borderRadius: 13
     },
     inputError: {
        backgroundColor: "#fed5d5ff",
@@ -80,10 +80,10 @@ export const global = StyleSheet.create({
     },
     primaryButton: {
         backgroundColor: "#ffffffff",
-        borderRadius: 17,
+        borderRadius: 19,
         padding: width * 0.02,
         marginTop: 9,
-        marginBottom: 9,
+        marginBottom: 4,
         width: "50%",
         left: "25%"
     },
@@ -93,10 +93,10 @@ export const global = StyleSheet.create({
     },
     primaryButtonText: {
         color: "#051566ff",
-        fontSize: 18,
-        marginTop: 3,
-        fontWeight: "700",
+        fontSize: 17,
+        marginTop: 1,
+        fontWeight: "900",
         textAlign: "center"
-    }
+    },
 
 }) 
