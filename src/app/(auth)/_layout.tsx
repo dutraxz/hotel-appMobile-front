@@ -8,12 +8,10 @@ import { Stack } from "expo-router";
 
 const AuthLayout = ()=> {
     return (
-        <Stack screenOptions={{headerShown: true}}>
-            <Stack.Screen name="index" options={{title: "Login"}}/>
-            {/*<Stack.Screnn name="register" options={{title: "Cadastro"}}/> */}
-            {/*<Stack.Screnn name="resetPassword" options={{title: "Esqueci minha senha"}}/> */}
-
-
+        <Stack screenOptions={{headerShown: false}}>
+            /*<Stack.Screen name="index" options={{title: "Login"}}/>*/
+            <Stack.Screen name="register" options={{title: "Cadastro"}}/>
+            <Stack.Screen name="resetPassword" options={{title: "Esqueci minha senha"}}/>
         </Stack>    
     )
 }
