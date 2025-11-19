@@ -27,13 +27,15 @@ const RenderLogin = () => {
                 icon="lock"
                 placeholder="*********"
             />
-        <TouchableOpacity style={[global.primaryButton]}>
+        <TouchableOpacity onPress={() => router.push("/(tabs)/explorer")} style={[global.primaryButton]}>
             <Text style={global.primaryButtonText}>Entrar</Text>
         </TouchableOpacity>
+        
         <View style={{alignItems: "center", marginTop: height * 0.01}}>
             <TouchableOpacity onPress={() => router.push("/(auth)/resetPassword")}>
                 <Text style={{color: "#c3c3c3ff", fontSize: 14}}>Esqueci minha senha</Text>
-            </TouchableOpacity>   
+            </TouchableOpacity>
+
             <TouchableOpacity onPress={() => router.push("/(auth)/register")} style={{ marginTop: height * 0.01}}>
                 <Text style={{color: "#c3c3c3ff", fontSize: 14}}> Não possuiu conta?
                     Cadastre-se agora!</Text>
