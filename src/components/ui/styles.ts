@@ -98,5 +98,56 @@ export const global = StyleSheet.create({
         fontWeight: "900",
         textAlign: "center"
     },
-
+    screenOptions: {
+        height: 60,
+        paddingBottom: 5,
+        borderRadius: 15,
+    },
+    centerView: {
+        flex: 5,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "rgba(0,0,0,0.5)"
+    },
+    modalView: {
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 20,
+        width: "90%",
+        padding: 35,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    card: {
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#051566ff",
+        borderRadius: 18,
+        padding: 12,
+        shadowOpacity: 0.1,
+        shadowRadius: 16,
+    },
+    image: {
+        width: 300,
+        height: 150,
+        borderRadius: 12,
+    },
+    infoSection: {
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    price: {
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    titleCard : {
+        color: "#ffffffff",
+    }
 }) 
