@@ -18,7 +18,7 @@ type Props = TextInputProps & {
 
 
 
-const TextField =  ({label, errorText, icon, style, button, onPressBack ...restInputProps } : Props) => {
+const TextField =  ({label, errorText, icon, style, button, onPressBack, ...restInputProps } : Props) => {
     return (
         <View style={global.inputGroup}>
             <Text style={global.label}>{label}</Text>
