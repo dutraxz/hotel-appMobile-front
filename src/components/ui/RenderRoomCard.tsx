@@ -14,9 +14,7 @@ const RenderRoomCard = () => {
         <Text style={global.titleCard}>Suite Victor
       
         </Text>
-      
-        
-
+    
         <Text style={global.price}>
           R$ 150 por 1 noites
         </Text>

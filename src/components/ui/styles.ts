@@ -107,7 +107,7 @@ export const global = StyleSheet.create({
         flex: 5,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "rgba(0,0,0,0.5)"
+        backgroundColor: "rgba(0, 0, 0, 0.5)"
     },
     modalView: {
         margin: 20,
@@ -116,7 +116,7 @@ export const global = StyleSheet.create({
         width: "90%",
         padding: 35,
         alignItems: "center",
-        shadowColor: "#000",
+        shadowColor: "#000000ff",
         shadowOffset: {
             width: 0,
             height: 2,
