@@ -1,11 +1,12 @@
 /* Cadasrtrar-se */
+import RenderReservation from "@/components/reservation";
 import { Text } from "react-native";
 
-const RenderReservation = () => {
+const Reservation = () => {
     return (
 
-        <Text>Reservation</Text>
+        <RenderReservation/>
         
     );
 }
-export default RenderReservation ;
+export default Reservation ;

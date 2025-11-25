@@ -4,13 +4,13 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
 import { global } from '@/components/ui/styles';
 
-const Layout = () => {
+const RenderLayout = () => {
   return (
     <Tabs screenOptions={{ tabBarActiveTintColor: '#04187eff', tabBarStyle: global.screenOptions }}>
       <Tabs.Screen
         name="reservation"
         options={{
-          title: 'Reservation',
+          title: 'reservation',
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="suitcase" color={color} />,
         }}
       />
@@ -32,4 +32,4 @@ const Layout = () => {
   );
 }
 
-export default Layout;
+export default RenderLayout;

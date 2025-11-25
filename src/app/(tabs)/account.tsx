@@ -1,11 +1,12 @@
  /* Cadasrtrar-se */
 import { Text } from "react-native";
+import RenderAccount from "@/components/account";
 
-const RenderAccount = () => {
+const Account = () => {
     return (
 
-        <Text>Minha Conta</Text>
+        <RenderAccount/>
         
     );
 }
-export default RenderAccount ;
+export default Account ;
