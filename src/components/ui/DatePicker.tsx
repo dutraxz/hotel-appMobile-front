@@ -1,23 +1,16 @@
 import { useState } from "react";
-import { View, Text, Modal } from "react-native";
+import { Dimensions, View, Text, Modal } from "react-native";
 import DatePicker, { getFormatedDate, getToday } from "react-native-modern-datepicker";
-
-
-
-
+//Instalaçao da biblioteca
 type Props = {
   label?: string;
 };
 
 const RenderDatePicker = ({ label }: Props) => {
-  const today = new Date();
-  const tomorrow = new Date(today);
-  tomorrow.setDate(today.getDate() + 1);
-  const startDate = getFormatedDate(tomorrow, "DD/MM/YYYY");
+  const { width, height } = Dimensions.get("window"); //Componente de dimensões para largura e altura
 
+  const startDate = getToday();
 
-  // getToday(); //Retorna a data atual 
-  // getFormatedDate(new Date(), "YYYY/MM/DD h:")
   const [selectDate, setSelectDate] = useState("");
   return(
     <View>
@@ -25,17 +18,22 @@ const RenderDatePicker = ({ label }: Props) => {
       <DatePicker
         mode="calendar"
         options={{
-          backgroundColor: "#03195bff",
-          textHeaderColor: "#ffffffff",
-          textDefaultColor: "#000000ff",
-          selectedTextColor: "#fff8f8ff",
-          mainColor: "#ffffffff",
-          textSecondaryColor: "#09207cff",
-          borderColor: "#ffffffff",
+          backgroundColor: "#051566ff", //fundo
+          textHeaderColor: "#a4a1a1ff", //mes 
+          textDefaultColor: "#ffffffff", //numero data
+          selectedTextColor: "#051566ff", //cor do numero (data) quando selecionado
+          mainColor: "#a4a1a1ff", //setas lateris e selector
+          textSecondaryColor: "#ffffffff", //dia semana
+          borderColor: "#ffffffff", //borda
+          textFontSize: 10,
+          textHeaderFontSize: 15
+      
       }}
-      style={{borderRadius: 15}}
+      style={{borderRadius: 15, width: width * 0.6, height: "auto"}}
       isGregorian ={true}
-      minimumDate={startDate}
+      minimumDate={selectDate}
+      selected={selectDate}
+      onSelectedChange={date => setSelectDate(date)}
       />
     </View>
   );
