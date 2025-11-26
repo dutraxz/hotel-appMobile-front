@@ -8,8 +8,8 @@ const RenderExplorer = () => {
     return (
         <AuthContainer>
             <View>
+                <TextField />
                 <RenderDatePicker/>
-                <Text>Esta será a futura explorer</Text>
             </View>
         </AuthContainer>
     );
