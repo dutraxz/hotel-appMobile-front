@@ -13,9 +13,7 @@ const PasswordField = (restInputProps: Props) => {
         <View>
             <TextField
                 {...restInputProps}
-                icon={restInputProps.icon ?? "lock"}
                 secureTextEntry={!show}
-                autoCapitalize="none"
                 autoCorrect={false}
             />
 

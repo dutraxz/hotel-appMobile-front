@@ -2,11 +2,11 @@
 
 import RenderResetPassword from "@/components/resetPassword";
 
-const Register = () => {
+const ResetPassword = () => {
     return (
 
         <RenderResetPassword/>
         
     );
 }
-export default Register ;
+export default ResetPassword;

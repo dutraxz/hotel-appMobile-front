@@ -18,7 +18,7 @@ const RenderResetPassword = () => {
             {/* children */}   
             <TextField
                 label="E-mail"
-                icon="email"
+                icon={{ lib: "MaterialIcons", name: "email" }}
                 placeholder="user@gmail.com"
                 keyboardType="email-address"
             />

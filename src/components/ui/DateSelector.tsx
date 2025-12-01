@@ -1,20 +1,15 @@
-import { useState } from "react";
 import { Dimensions, View, Text, Modal } from "react-native";
 import DatePicker, { getFormatedDate, getToday } from "react-native-modern-datepicker";
 //Instalaçao da biblioteca
 type Props = {
-  label?: string;
-};
+  onSelectDate: (date: string) => void;
+}
 
-const RenderDatePicker = ({ label }: Props) => {
+const DateSelector = ({ onSelectDate }: Props) => {
   const { width, height } = Dimensions.get("window"); //Componente de dimensões para largura e altura
-
-  const startDate = getToday();
-
-  const [selectDate, setSelectDate] = useState("");
+  const today = getToday();
   return(
     <View>
-      {!!label && <Text>{label}</Text>}
       <DatePicker
         mode="calendar"
         options={{
@@ -29,16 +24,17 @@ const RenderDatePicker = ({ label }: Props) => {
           textHeaderFontSize: 15
       
       }}
-      style={{borderRadius: 15, width: width * 0.6, height: "auto"}}
-      isGregorian ={true}
-      minimumDate={selectDate}
-      selected={selectDate}
-      onSelectedChange={date => setSelectDate(date)}
+        style={{ borderRadius: 15, width: width * 0.65, height: "auto" }}
+        isGregorian={true}
+        minimumDate={today}
+        onSelectedChange={(date) => {
+          onSelectDate(date);
+        }}
       />
     </View>
   );
-};
-export default RenderDatePicker;
+};;
+export default DateSelector;
 // const [open, setOpen] = useState(false);
 // const [date, setDate] = useState('2023/02/08');
 

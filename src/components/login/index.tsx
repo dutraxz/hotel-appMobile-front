@@ -11,20 +11,21 @@ const RenderLogin = () => {
     const { width, height } = Dimensions.get("window");
     return (
         <AuthContainer
-            
+        
             title="Bem-Vindo"
             subtitle="Faça seu login para continuar!"
             icon="hotel">
-            {/* children */}   
+            {/* children */}
+            <View style={global.content}>   
             <TextField
                 label="E-mail"
-                icon="email"
+                icon={{ lib: "MaterialIcons", name: "email" }}
                 placeholder="user@gmail.com"
                 keyboardType="email-address"
             />
             <PasswordField
                 label="Senha"
-                icon="lock"
+                icon={{ lib: "MaterialIcons", name: "lock" }}
                 placeholder="*********"
             />
         <TouchableOpacity onPress={() => router.push("/(tabs)/explorer")} style={[global.primaryButton]}>
