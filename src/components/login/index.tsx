@@ -15,8 +15,7 @@ const RenderLogin = () => {
             title="Bem-Vindo"
             subtitle="Faça seu login para continuar!"
             icon="hotel">
-            {/* children */}
-            <View style={global.content}>   
+            {/* children */}   
             <TextField
                 label="E-mail"
                 icon={{ lib: "MaterialIcons", name: "email" }}

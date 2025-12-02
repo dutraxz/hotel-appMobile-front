@@ -1,51 +1,96 @@
-import { View, Text, Image, TextInput } from "react-native";
+
+import { FontAwesome5, FontAwesome6, MaterialIcons } from "@expo/vector-icons";
+import { Dimensions, Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
 import { global } from "./styles";
-import TextField from "./TextField";
-import { FontAwesome6, MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
 
-type Infos = { title?: string; text?: string}
+type NameIcon =
+  | { lib: "MaterialIcons"; name: keyof typeof MaterialIcons.glyphMap }
+  | { lib: "FontAwesome6"; name: keyof typeof FontAwesome6.glyphMap }
+  | { lib: "FontAwesome5"; name: keyof typeof FontAwesome5.glyphMap };
 
-type NameIcon = 
-    | {lib: "MaterialIcons"; name: keyof typeof MaterialIcons.glyphMap }
-    | {lib: "FontAwesome6"; name: keyof typeof FontAwesome6.glyphMap }
-    | {lib: "FontAwesome5"; name: keyof typeof FontAwesome5.glyphMap };
+type Infos = { title?: string; text: string; price: number };
 
 type Props = {
-  label: string;
-  errorText?: string;
-  description?: string;
+  image?: ImageSourcePropType;
+  label?: string;
+  description?: Infos;
   icon?: NameIcon;
 };
-const RoomCard = ({label, description, icon, errorText}: Props) => {
-  return (
-    <View style={global.card}>
-      <View></View>
-    <View>
-      {!! label && <Text>{label}</Text>}
-        <View>
-          <View>
-            {!!icon && (
-              <View>
-            {icon.lib === "MaterialIcons" && (
-              <MaterialIcons name={icon.name} size={21} color="#052659"/>
-            )}
-            {icon.lib === "FontAwesome6" && (
-              <FontAwesome6 name={icon.name} size={21} color="#052659"/>
-            )}
-            </View>
-            )}
-          
-            {!!description && <Text>{description.title}</Text>}
-            </View>
 
-            <View></View>
+const { width, height } = Dimensions.get("window");
+const RoomCard = ({ image, label, description, icon }: Props) => {
+  return (
+    <View style={global.content}>
+     {!!image &&
+      <View><Image style={styles.image} source={image} resizeMode="cover"/></View>}
+      <View>
+        {!!label && <Text style={{fontSize: 23, fontWeight: 600, marginTop: height * 0.02}}>{label}</Text>}
+        <View style={styles.container}>
+          <View style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-evenly"}}>
+            {!!icon && (
+              <View style={{marginTop: height * 0.04}}>
+                {icon.lib === "MaterialIcons" && (
+                  <MaterialIcons name={icon.name} size={23} color="#051566ff" />
+                )}
+                {icon.lib === "FontAwesome5" && (
+                  <FontAwesome5 name={icon.name} size={23} color="#051566ff" />
+                )}
+                {icon.lib === "FontAwesome6" && (
+                  <FontAwesome6 name={icon.name} size={23} color="#051566ff" />
+                )}
+              </View>
+            )}
+            {!!description && (
+              <View style={styles.description}>
+                <View>
+                  {!!description.title && (
+                    <Text style={global.label}>{description.title}</Text>
+                  )}
+                  <Text style={styles.text}>{description.text}</Text>
+                </View>
+                <View style={{marginTop: height * 0.04}}>
+                  <Text style={styles.price}>R$ {description.price}</Text>
+                </View>
+              </View>
+            )}
           </View>
         </View>
       </View>
+    </View>
   );
 };
+
 const styles = StyleSheet.create({
-
-}); 
-
-export default RenderRoomCard;
+  image: {
+    height: height * 0.27,
+    width: "auto",
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: 10,
+    elevation: 2,
+  },
+  container: {
+    marginTop: height * 0.03,
+    backgroundColor: "#f6ecffff",
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: 10,
+    elevation: 2,
+  },
+  description: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  text: {
+    fontSize: 15,
+  },
+  price: {
+    fontSize: 17,
+    fontWeight: 600,
+    color: "#051566ff"
+  }
+});
+export default RoomCard;

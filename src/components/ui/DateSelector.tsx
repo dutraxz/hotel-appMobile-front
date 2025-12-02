@@ -1,5 +1,5 @@
-import { Dimensions, View, Text, Modal } from "react-native";
-import DatePicker, { getFormatedDate, getToday } from "react-native-modern-datepicker";
+import { Dimensions, View} from "react-native";
+import DatePicker, { getToday } from "react-native-modern-datepicker";
 //Instalaçao da biblioteca
 type Props = {
   onSelectDate: (date: string) => void;
