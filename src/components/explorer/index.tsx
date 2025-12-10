@@ -60,7 +60,6 @@ const RenderExplorer = () => {
           price: 180.90
         }}
       />
-
     </AuthContainer>
   )};
 export default RenderExplorer;
