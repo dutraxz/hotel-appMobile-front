@@ -1,10 +1,9 @@
-import TextField from "../ui/TextField";
-import AuthContainer from "../ui/AuthContainer";
-import PasswordField from "../ui/PasswordField";
-import { TouchableOpacity, View, Dimensions} from "react-native";
-import { global } from "../ui/styles";
-import { Button, Text } from "@react-navigation/elements";
+import { Text } from "@react-navigation/elements";
 import { useRouter, } from "expo-router";
+import { Dimensions, TouchableOpacity, View } from "react-native";
+import AuthContainer from "../ui/AuthContainer";
+import { global } from "../ui/styles";
+import TextField from "../ui/TextField";
 
 const RenderResetPassword = () => {
     const router = useRouter();
@@ -20,7 +19,7 @@ const RenderResetPassword = () => {
                 label="E-mail"
                 icon={{ lib: "MaterialIcons", name: "email" }}
                 placeholder="user@gmail.com"
-                keyboardType="email-address"
+                sfs="email-address"
             />
 
         <TouchableOpacity style={[global.primaryButton]}>
