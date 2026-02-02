@@ -1,3 +1,4 @@
+import iconSet from "@expo/vector-icons/build/Fontisto";
 import { Dimensions, StyleSheet } from "react-native";
 const { width, height } = Dimensions.get("window");
 export const global = StyleSheet.create({
@@ -10,11 +11,14 @@ export const global = StyleSheet.create({
     },
     container: {
         paddingHorizontal: width * 0.07,
-        paddingVertical: height * 0.07
+        paddingVertical: height * 0.03,
+        flexGrow: 1,
+        justifyContent: "flex-start",
     },
     header: {
         alignItems: "center",
-        marginBottom: height * 0.02
+        marginBottom: height * 0.02,
+        marginTop: 0
     },
     title: {
         fontSize: 25,
@@ -31,11 +35,15 @@ export const global = StyleSheet.create({
     content: {
         backgroundColor: "#051566ff",
         borderRadius: 15,
-        padding: width * 0.02,
+        padding: 14,
         shadowColor: "#201c1cff",
         shadowOpacity: 0.05,
         shadowRadius: 10,
-        elevation: 2
+        elevation: 9,
+        marginBottom: height * 0.02,
+   
+        
+        
     },
     //Inputs
     inputGroup: {
@@ -53,7 +61,7 @@ export const global = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         borderWidth: 1,
-        borderColor: "#6c6969ff",
+        borderColor: "rgb(240, 227, 227)",
         borderRadius: 13
     },
     inputError: {
@@ -118,8 +126,8 @@ export const global = StyleSheet.create({
         alignItems: "center",
         shadowColor: "#000000ff",
         shadowOffset: {
-            width: 0,
-            height: 2,
+        width: 0,
+        height: 2,
         },
         shadowOpacity: 0.25,
         shadowRadius: 4,
