@@ -19,7 +19,7 @@ const RenderResetPassword = () => {
                 label="E-mail"
                 icon={{ lib: "MaterialIcons", name: "email" }}
                 placeholder="user@gmail.com"
-                sfs="email-address"
+                // sfs="email-address"
             />
 
         <TouchableOpacity style={[global.primaryButton]}>
