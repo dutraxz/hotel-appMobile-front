@@ -50,19 +50,19 @@ const RenderRegister = () => {
                 label="E-mail"
                 icon={{ lib: "MaterialIcons", name: "email" }}
                 placeholder="user@gmail.com"
-                sfs="email-address"
+                keyboardType="email-address"
             />
             <TextField
                 label="CPF"
                 icon={{ lib: "MaterialIcons", name: "badge" }}
                 placeholder="000.000.000-00"
-                sfs="number-pad"
+                keyboardType="number-pad"
             />
             <TextField
                 label="Telefone"
                 icon={{ lib: "MaterialIcons", name: "phone" }}
                 placeholder="(00) 00000-0000"
-                sfs="phone-pad"
+                keyboardType="phone-pad"
             />
             <PasswordField
                 label="Senha"
