@@ -40,6 +40,7 @@ const RenderAccount = () => {
     const [modalVisivel, setModalVisivel] = useState(false);
     const [novaSenha, setNovaSenha] = useState("");
     const [confirmaSenha, setConfirmaSenha] = useState("");
+    const [senhaAntiga, setSenhaAntiga] = useState("");
 
     // Salvar dados gerais
     const handleSubmit = async () => {
@@ -68,14 +69,21 @@ const RenderAccount = () => {
     };
 
     return (
+        <View style={{ flex: 1, marginTop: -40 }}>
         <AuthContainer
             title="Bem-Vindo a sua conta"
             subtitle="Gerencie suas informações pessoais"
-            icon="person">
+            icon="person"
+            >
+        <View style={[global.content, { marginTop: 20, padding: 20}]}>
             
-            <View style={global.content}>
-                <ScrollView contentContainerStyle={{ paddingBottom: 50 }}>
-                    
+                <ScrollView contentContainerStyle={{
+                     paddingBottom: 50,
+                     justifyContent: 'flex-start', // Garante que comece no topo
+                    paddingTop: 0                 // Zera qualquer espaço superior }}>
+                    }}>
+
+                    {/* Inputs para nome, cpf, email e telefone */}
                     <TextField
                         label="Alterar Nome"
                         icon={{ lib: "MaterialIcons", name: "person" }}
@@ -152,6 +160,17 @@ const RenderAccount = () => {
                                 Definir Nova Senha
                             </Text>
 
+
+                            <TextField
+                                label="Senha Antiga"
+                                icon={{ lib: "MaterialIcons", name: "lock-open" }}
+                                placeholder="Digite a senha antiga"
+                                textAlign="center"
+                                secureTextEntry={true}
+                                onChangeText={setSenhaAntiga}
+                                value={senhaAntiga}
+                            />
+
                             <TextField
                                 label="Nova Senha"
                                 icon={{ lib: "MaterialIcons", name: "lock" }}
@@ -164,9 +183,9 @@ const RenderAccount = () => {
 
                             <TextField
                                 label="Confirmar Senha"
-                                icon={{ lib: "MaterialIcons", name: "lock-outline" }}
+                                icon={{ lib: "MaterialIcons", name: "lock" }}
                                 placeholder="Confirme a nova senha"
-                                textAlign="center"
+                                textAlign="left"
                                 secureTextEntry={true}
                                 onChangeText={setConfirmaSenha}
                                 value={confirmaSenha}
@@ -174,19 +193,20 @@ const RenderAccount = () => {
 
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 20 }}>
                                 <TouchableOpacity
-                                    style={[global.primaryButton, { alignItems: "center", backgroundColor: "#051566ff", flex: 1, marginRight: 5 }]}
+                                    style={[global.primaryButton, { alignItems: "center", backgroundColor: "#051566ff", flex: 1, marginRight: 7 }]}
                                     onPress={() => {
                                         setModalVisivel(false);
+                                        setSenhaAntiga("");
                                         setNovaSenha(""); // Limpa se cancelar também
                                         setConfirmaSenha("");
                                     }}>
-                                    <Text style={[global.primaryButtonText, { color: "#ffffff" }]}>Cancelar</Text>
+                                    <Text style={[global.primaryButtonText, {alignContent: "center", color: "#ffffff" }]}>Cancelar</Text>
                                 </TouchableOpacity>
 
                                 <TouchableOpacity
-                                    style={[global.primaryButton, {  backgroundColor: "#051566ff", flex: 1, marginLeft: 10 }]}
+                                    style={[global.primaryButton, {  backgroundColor: "#051566ff", marginLeft: 5 }]}
                                     onPress={handleAlterarSenha}>
-                                    <Text style={[global.primaryButtonText,  { color: "#ffffff"}]}>Confirmar</Text>
+                                    <Text style={[global.primaryButtonText,  {alignItems: "center", color: "#ffffff"}]}>Confirmar</Text>
                                 </TouchableOpacity>
                             </View>
 
@@ -196,6 +216,7 @@ const RenderAccount = () => {
 
             </View>
         </AuthContainer>
+        </View>
     );
 };
 export default RenderAccount;
