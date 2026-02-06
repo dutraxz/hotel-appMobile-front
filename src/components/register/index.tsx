@@ -1,17 +1,36 @@
 import { Text } from "@react-navigation/elements";
-import { useNavigation, useRouter, } from "expo-router";
+import { useRouter } from "expo-router";
+import React, { useMemo, useState } from 'react';
 import { Dimensions, TouchableOpacity, View } from "react-native";
 import AuthContainer from "../ui/AuthContainer";
 import PasswordField from "../ui/PasswordField";
 import { global } from "../ui/styles";
 import TextField from "../ui/TextField";
-import React, { useMemo, useState } from 'react';
 
 function isValidEmail(email: string) {
   return /^[^\s@&='"!]@[^\s@&='"!].[^\s@&='"!]$/.test(email);
 }
+// --- Funções Auxiliares de Máscara (Sem precisar de biblioteca) ---
+const mascaraCPF = (value: string) => {
+    return value
+        .replace(/\D/g, "") // Remove tudo o que não é dígito
+        .replace(/(\d{3})(\d)/, "$1.$2") // Coloca ponto após o 3º digito
+        .replace(/(\d{3})(\d)/, "$1.$2") // Coloca ponto após o 6º digito
+        .replace(/(\d{3})(\d{1,2})/, "$1-$2") // Coloca traço após o 9º digito
+        .replace(/(-\d{2})\d+?$/, "$1"); // Limita o tamanho
+};
+
+const mascaraTelefone = (value: string) => {
+    return value
+        .replace(/\D/g, "")
+        .replace(/(\d{2})(\d)/, "($1) $2")
+        .replace(/(\d{5})(\d)/, "$1-$2")
+        .replace(/(-\d{4})\d+?$/, "$1");
+};
+
 
 const RenderRegister = () => {
+    
      const router = useRouter();
       const [email, setEmail] = useState("");
       const [cpf, setCpf] = useState("");
@@ -57,15 +76,21 @@ const RenderRegister = () => {
                 icon={{ lib: "MaterialIcons", name: "badge" }}
                 placeholder="000.000.000-00"
                 keyboardType="number-pad"
+                value={cpf}
+                onChangeText={(text) => setCpf(mascaraCPF(text))} // Aplica a máscara
+                maxLength={14}
             />
             <TextField
                 label="Telefone"
                 icon={{ lib: "MaterialIcons", name: "phone" }}
                 placeholder="(00) 00000-0000"
                 keyboardType="phone-pad"
+                value={telefone}
+                onChangeText={(text) => setTelefone(mascaraTelefone(text))} // Aplica a máscara
+                maxLength={15}
             />
             <PasswordField
-                label="Senha"
+                label="Insira sua Senha"
                 icon={{ lib: "MaterialIcons", name: "lock" }}
                 placeholder="*********"
             />
@@ -81,20 +106,20 @@ const RenderRegister = () => {
 
                 <Text 
                 style={global.primaryButtonText}>
-                    Criar Conta</Text>
+                    Criar Conta</Text>  
 
             </TouchableOpacity> 
             <View 
             style={{ alignItems: "center", marginTop: height * 0.01 }}>
                 
                 <TouchableOpacity
-
-                            style={{ marginTop: height * 0.01}}>
+                            onPress={() => router.replace("/(auth)")}
+                            style={{ marginTop: height * 0.01 }}>
                 
-                                <Text style={{color: "#c3c3c3ff", fontSize: 14}}> Não possuiu conta?
-                                    Cadastre-se agora!
-                                    </Text>
-                    </TouchableOpacity>
+                        <Text style={{ color: "#c3c3c3ff", fontSize: 14 }}> Já possui conta?
+                              Faça o Login!
+                        </Text>
+                </TouchableOpacity>
                 </View>
             </View>
         </AuthContainer>
