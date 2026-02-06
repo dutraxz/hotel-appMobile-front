@@ -80,7 +80,7 @@ const RenderLogin = () => {
 
           <View
             style={{
-              backgroundColor: "#7c8390ff",
+              backgroundColor: "rgb(255, 255, 255)",
               width: width * 0.5,
               height: height * 0.001,
               borderRadius: 10,
