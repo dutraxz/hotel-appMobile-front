@@ -4,7 +4,7 @@ const { width, height } = Dimensions.get("window");
 export const global = StyleSheet.create({
     safeArea: {
         flex: 1,
-        backgroundColor: "#ffffffff"
+        backgroundColor: "rgb(255, 250, 250)"
     },
     keyboardAvoiding: {
         flex: 1
@@ -41,9 +41,6 @@ export const global = StyleSheet.create({
         shadowRadius: 10,
         elevation: 9,
         marginBottom: height * 0.02,
-   
-        
-        
     },
     //Inputs
     inputGroup: {
@@ -87,7 +84,7 @@ export const global = StyleSheet.create({
         marginTop: height * 0.01
     },
     primaryButton: {
-        backgroundColor: "#ffffffff",
+        backgroundColor: "rgb(250, 250, 250)",
         borderRadius: 19,
         padding: width * 0.02,
         marginTop: 9,
@@ -104,7 +101,7 @@ export const global = StyleSheet.create({
         fontSize: 17,
         marginTop: 1,
         fontWeight: "900",
-        textAlign: "center"
+        textAlign: "center",
     },
     screenOptions: {
         height: 60,
