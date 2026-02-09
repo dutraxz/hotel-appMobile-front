@@ -102,6 +102,10 @@ export const global = StyleSheet.create({
         marginTop: 1,
         fontWeight: "900",
         textAlign: "center",
+        alignContent: "center",
+        justifyContent: "center",
+        alignItems: "center"
+        
     },
     screenOptions: {
         height: 60,
@@ -155,4 +159,16 @@ export const global = StyleSheet.create({
     titleCard : {
         color: "#ffffffff",
     }
-}) 
+    
+})
+//ESPAÇAMENTOS
+export const spacing = {
+  xs: 4,
+  sm: 8,
+  md: 12,
+  base: 16,
+  lg: 20,
+  xl: 24,
+  xxl: 32,
+  xxxl: 40,
+} as const;
