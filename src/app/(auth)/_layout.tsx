@@ -5,16 +5,23 @@ back(): retorna a tela anterior empilhada
 replace(): substitui uma tela por outra*/
 
 import { Stack } from "expo-router";
+import { useAuth } from "@/contexts/AuthContext";
 
 const AuthLayout = ()=> {
+    const { token, isLoading } = useAuth();
+    if(isLoading) return null;
+
     return (
         <Stack screenOptions={{headerShown: false}}>
             <Stack.Screen name="index" options={{title: "Login"}}/>
             <Stack.Screen name="register" options={{title: "Cadastro"}}/>
             <Stack.Screen name="resetPassword" options={{title: "Esqueci minha senha"}}/>
-
+            <Stack.Screen
+                name="resetPassword"
+                options={{title: "Esqueci minha senha"}}
+            />
         </Stack>    
-    )
-}
+    );
+};
 
 export default AuthLayout;

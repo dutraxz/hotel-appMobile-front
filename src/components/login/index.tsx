@@ -1,4 +1,5 @@
 import { Text } from "@react-navigation/elements";
+
 import { useRouter } from "expo-router";
 import React, { useMemo, useState } from 'react';
 import { Dimensions, TouchableOpacity, View } from "react-native";
@@ -12,6 +13,7 @@ function isValidEmail(email: string) {
 }
 
 const RenderLogin = () => {
+
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

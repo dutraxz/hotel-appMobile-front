@@ -1,10 +1,16 @@
 /*Função: definir o fluxo de navegação entre as telas disponíveis em Tab Navigator:
 Explorar, Reservas, Perfil*/
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Tabs } from 'expo-router';
+import { Redirect, Tabs } from 'expo-router';
+import { useAuth } from '@/contexts/AuthContext';
 import { global } from '@/components/ui/styles';
 
 const RenderLayout = () => {
+  const { token, isLoading } = useAuth();
+  if (isLoading) return null;
+  if (!token) {
+  return <Redirect href= "/(auth)" />;
+}
   return (
     <Tabs screenOptions={{ tabBarActiveTintColor: '#04187eff', tabBarStyle: global.screenOptions }}>
       <Tabs.Screen
@@ -30,6 +36,6 @@ const RenderLayout = () => {
       />
     </Tabs>
   );
-}
+};
 
 export default RenderLayout;
